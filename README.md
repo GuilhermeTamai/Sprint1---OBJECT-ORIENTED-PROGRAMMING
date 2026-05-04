@@ -91,7 +91,7 @@ Classe principal responsável pela execução do sistema.
 
 ---
 
-### 🚫 Validações
+## 🚫 Validações
 
 O sistema impede:
 
