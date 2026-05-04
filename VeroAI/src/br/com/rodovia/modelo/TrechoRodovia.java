@@ -1,6 +1,7 @@
 package br.com.rodovia.modelo;
 
 public class TrechoRodovia {
+
     public static final double LIMITE_CRITICO = 30.0;
 
     private String identificador;
@@ -10,12 +11,10 @@ public class TrechoRodovia {
 
     public TrechoRodovia(String identificador, double kmInicial, double kmFinal, double nivelVegetacaoInicial) {
         this.identificador = identificador;
-        // Usamos os setters no construtor para garantir que a validação seja aplicada na criação
         setQuilometros(kmInicial, kmFinal);
-        setNivelVegetacao(nivelVegetacaoInicial);
+        this.nivelVegetacao = Math.max(0, nivelVegetacaoInicial);
     }
 
-    // Método para validar e definir os quilômetros simultaneamente (evita inconsistência)
     public void setQuilometros(double inicial, double fim) {
         if (inicial < 0 || fim < 0) {
             throw new IllegalArgumentException("[ERRO] Quilometragem não pode ser negativa (Informado: " + inicial + " a " + fim + ")");
@@ -29,7 +28,7 @@ public class TrechoRodovia {
 
     public void registrarCrescimento(double taxa) {
         if (taxa < 0) {
-            throw new IllegalArgumentException("[ERRO] Taxa de crescimento negativa no trecho " + identificador);
+            throw new IllegalArgumentException("[ERRO] Taxa de crescimento inválida no trecho " + identificador);
         }
         this.nivelVegetacao += taxa;
     }
@@ -38,25 +37,40 @@ public class TrechoRodovia {
         return this.nivelVegetacao >= LIMITE_CRITICO;
     }
 
-    // Getters
-    public String getIdentificador() { return identificador; }
-    public double getQuilometroInicial() { return quilometroInicial; }
-    public double getQuilometroFinal() { return quilometroFinal; }
-    public double getNivelVegetacao() { return nivelVegetacao; }
+    public String getIdentificador() {
+        return identificador;
+    }
 
-    // Setter de Vegetação
+    public double getQuilometroInicial() {
+        return quilometroInicial;
+    }
+
+    public double getQuilometroFinal() {
+        return quilometroFinal;
+    }
+
+    public double getNivelVegetacao() {
+        return nivelVegetacao;
+    }
+
     public void setNivelVegetacao(double nivelVegetacao) {
-        if (nivelVegetacao < 0) {
-            throw new IllegalArgumentException("[ERRO] Nível de vegetação negativo: " + nivelVegetacao + "cm.");
-        }
-        this.nivelVegetacao = nivelVegetacao;
+        this.nivelVegetacao = Math.max(0, nivelVegetacao);
     }
 
     @Override
     public String toString() {
         double extensao = quilometroFinal - quilometroInicial;
         String status = estaCritico() ? " [CRÍTICO]" : " [OK]";
-        return String.format("%s (KM %.1f ao %.1f | Extensão: %.1fkm) | Vegetação: %.2f/%.0f cm%s", 
-                identificador, quilometroInicial, quilometroFinal, extensao, nivelVegetacao, LIMITE_CRITICO, status);
+
+        return String.format(
+            "%s (KM %.1f ao %.1f | Extensão: %.1fkm) | Vegetação: %.2f/%.0f cm%s",
+            identificador,
+            quilometroInicial,
+            quilometroFinal,
+            extensao,
+            nivelVegetacao,
+            LIMITE_CRITICO,
+            status
+        );
     }
 }
