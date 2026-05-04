@@ -89,6 +89,8 @@ Classe principal responsável pela execução do sistema.
 5. Execução de manutenção
 6. Exibição do relatório final
 
+---
+
 ### 🚫 Validações
 
 O sistema impede:
