@@ -18,6 +18,27 @@ O sistema foi desenvolvido como parte da disciplina Object-Oriented Programming 
 
 ---
 
+## ▶️ Como executar o Projeto
+
+### 🧰 Pré-requisitos
+- Java 8 ou superior
+- Terminal ou IDE (IntelliJ, Eclipse, VS Code)
+
+### 🚀 Passos
+1. Clone o repositório:
+  -git clone https://github.com/GuilhermeTamai/Sprint1---OBJECT-ORIENTED-PROGRAMMING.git
+   
+2. Acesse a pasta do projeto:
+  -cd Sprint1---OBJECT-ORIENTED-PROGRAMMING
+  
+3. Compile os arquivos:
+  -javac Main.java
+
+4. Execute o programa:
+   -java Main
+
+---
+
 ## 🤔 Perguntas Reflexivas
 
 ### ❓ Por que `TrechoRodovia` é uma classe e "BR-116 KM 10 ao 15" é um objeto?
