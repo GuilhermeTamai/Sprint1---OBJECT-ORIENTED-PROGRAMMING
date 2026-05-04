@@ -2,9 +2,21 @@
 
 ## 📌 Sobre o Projeto
 
-Este projeto tem como objetivo desenvolver um sistema de monitoramento e priorização de roçada de vegetação em rodovias. A proposta é simular o crescimento da vegetação ao longo de trechos rodoviários e auxiliar na identificação de áreas críticas, otimizando a atuação das equipes de manutenção.
+Este projeto tem como objetivo desenvolver um sistema de monitoramento e priorização de roçada de vegetação em rodovias. 
 
-O sistema foi desenvolvido como parte da disciplina Object-Oriented Programming (OOP), com foco na aplicação prática dos conceitos fundamentais de programação orientada a objetos, com a utlização da linguagem Java.
+A aplicação modela trechos rodoviários e equipes de manutenção, permitindo acompanhar o crescimento da vegetação e identificar automaticamente situações críticas que exigem intervenção.
+
+Desenvolvido como parte da disciplina **Object-Oriented Programming (OOP)**, utilizando **Java**, com foco na aplicação prática dos conceitos de orientação a objetos.
+
+### 🚀 Funcionalidades
+
+- Criação de trechos de rodovia com identificação e quilometragem
+- Simulação de crescimento da vegetação
+- Definição de limite crítico de vegetação
+- Identificação automática de trechos críticos
+- Execução de manutenção por equipes responsáveis
+- Validação de dados (não permite valores inválidos)
+- Geração de relatórios no console
 
 ---
 
@@ -26,16 +38,74 @@ O sistema foi desenvolvido como parte da disciplina Object-Oriented Programming 
 
 ### 🚀 Passos
 1. Clone o repositório:
+
 `git clone https://github.com/GuilhermeTamai/Sprint1---OBJECT-ORIENTED-PROGRAMMING.git`
     
 2. Acesse a pasta do projeto:
+
 `cd Sprint1---OBJECT-ORIENTED-PROGRAMMING`
   
 3. Compile os arquivos:
+
 `javac Main.java`
 
-4. Execute o programa:
+5. Execute o programa:
+
 `java Main`
+
+---
+
+## 🧱 Estrutura do Projeto
+
+### 📦 `TrechoRodovia`
+Representa um trecho da rodovia.
+
+**Responsabilidades:**
+- Armazenar dados do trecho
+- Controlar o crescimento da vegetação
+- Validar valores
+- Identificar se o trecho está crítico
+
+**Destaques:**
+- Uso de constante `LIMITE_CRITICO`
+- Validação de quilometragem e vegetação
+- Método `estaCritico()` para regra de negócio
+
+### 👷 `EquipeManutencao`
+Representa uma equipe responsável pela roçada.
+
+**Responsabilidades:**
+- Executar manutenção em trechos críticos
+- Resetar o nível de vegetação após intervenção
+
+### 🖥️ `SistemaPrincipal`
+Classe principal responsável pela execução do sistema.
+
+**Fluxo:**
+1. Criação dos trechos
+2. Exibição do estado inicial
+3. Simulação de crescimento
+4. Análise de criticidade
+5. Execução de manutenção
+6. Exibição do relatório final
+
+### 🚫 Validações
+
+O sistema impede:
+
+- Quilometragem negativa
+- KM final menor ou igual ao inicial
+- Nível de vegetação negativo
+- Crescimento negativo
+
+### 🧪 Cenários Testados
+
+- Instanciação válida de trechos
+- Tentativa de criação com valores inválidos (tratada com exceção)
+- Crescimento da vegetação
+- Detecção de estado crítico
+- Execução de manutenção
+- Reset do nível de vegetação após intervenção
 
 ---
 
