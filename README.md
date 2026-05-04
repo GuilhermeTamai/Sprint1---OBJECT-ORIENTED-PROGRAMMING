@@ -26,20 +26,16 @@ O sistema foi desenvolvido como parte da disciplina Object-Oriented Programming 
 
 ### 🚀 Passos
 1. Clone o repositório:
-
-  -git clone https://github.com/GuilhermeTamai/Sprint1---OBJECT-ORIENTED-PROGRAMMING.git
-   
-3. Acesse a pasta do projeto:
-
-  -cd Sprint1---OBJECT-ORIENTED-PROGRAMMING
+  - git clone https://github.com/GuilhermeTamai/Sprint1---OBJECT-ORIENTED-PROGRAMMING.git
+    
+2. Acesse a pasta do projeto:
+  - cd Sprint1---OBJECT-ORIENTED-PROGRAMMING
   
-5. Compile os arquivos:
+3. Compile os arquivos:
+  - javac Main.java
 
-  -javac Main.java
-
-7. Execute o programa:
-   
-   -java Main
+4. Execute o programa:
+  - java Main
 
 ---
 
